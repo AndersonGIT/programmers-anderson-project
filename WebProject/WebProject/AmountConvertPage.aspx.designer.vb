@@ -21,13 +21,4 @@ Partial Public Class AmountConvertPage
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
     Protected WithEvents amountValue As Global.System.Web.UI.HtmlControls.HtmlInputGenericControl
-
-    '''<summary>
-    '''Controle txtResult.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents txtResult As Global.System.Web.UI.HtmlControls.HtmlInputText
 End Class

@@ -12,23 +12,23 @@
                     $.ajax({
                         type: "POST",
                         url: '<%= ResolveUrl("PalindromeCheckPage.aspx/IsPalindrome") %>',
-                    data: JSON.stringify({ input: valueInput }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function (response) {
-                        if (response.d) {
-                            $('#txtResult').val(valueInput + ' is Palindrome.');
-                        } else {
-                            $("#txtResult").val(valueInput + ' is NOT Palindrome.');
+                        data: JSON.stringify({ input: valueInput }),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (response) {
+                            if (response.d) {
+                                $('#txtResult').val(valueInput + ' is Palindrome.');
+                            } else {
+                                $("#txtResult").val(valueInput + ' is NOT Palindrome.');
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("Error: " + error);
                         }
-                    },
-                    error: function (xhr, status, error) {
-                        console.error("Error: " + error);
-                    }
-                });
-            }
+                    });
+                }
+            });
         });
-    });
 
         $(document).ready(function () {
             $("#btnPalindromeCheckJS").click(function () {
@@ -66,20 +66,20 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="form-group">
                 <label for="lblValueToCheck">Value To Check</label>
-                <input runat="server" class="form-control" id="valueInput" ClientIdMode="Static" aria-describedby="amountHelp" placeholder="Enter a positive number:">
+                <input runat="server" class="form-control" id="valueInput" clientidmode="Static" aria-describedby="amountHelp" placeholder="Enter a positive number:">
                 <small id="valueInputHelp" class="form-text text-muted">The number to check if it is Palindrome or not.</small>
                 <p>
                     <br />
-                    <button type="button" runat="server" class="btn btn-primary" id="btnPalindromeCheckAjax" ClientIdMode="Static">Check</button>
-                    <button type="button" runat="server" class="btn btn-secondary" id="btnPalindromeCheckJS" ClientIdMode="Static">Check JS</button>
+                    <button type="button" runat="server" class="btn btn-primary" id="btnPalindromeCheckAjax" clientidmode="Static">Check</button>
+                    <button type="button" runat="server" class="btn btn-secondary" id="btnPalindromeCheckJS" clientidmode="Static">Check JS</button>
                 </p>
             </div>
             <div class="form-group">
                 <label for="lblResult">Result</label>
-                <input runat="server" type="text" class="form-control" ClientIdMode="Static" id="txtResult" disabled>
+                <textarea clientddmode="Static" class="form-control" id="txtResult" rows="2" disabled></textarea>
             </div>
         </div>
     </div>

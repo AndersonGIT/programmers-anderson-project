@@ -42,7 +42,7 @@
         <div class="col-md-8">
             <div class="form-group">
                 <label for="lblAmount">Amount</label>
-
+                
                 <input runat="server" type="number" min="1" step="any" class="form-control" id="amountValue" clientidmode="Static" aria-describedby="amountHelp" placeholder="Enter amount" width="300px">
                 <small id="amountHelp" class="form-text text-muted">The amount value to be writen in extension.</small>
                 <p>
@@ -52,7 +52,7 @@
             </div>
             <div class="form-group">
                 <label for="lblResult">Result</label>
-                <input runat="server" type="text" class="form-control" id="txtResult" clientidmode="Static" disabled>
+                <textarea  ClientDdMode="Static" class="form-control" id="txtResult" rows="6" disabled></textarea>
             </div>
         </div>
     </div>

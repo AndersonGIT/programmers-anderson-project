@@ -39,13 +39,4 @@ Partial Public Class PalindromeCheckPage
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
     Protected WithEvents btnPalindromeCheckJS As Global.System.Web.UI.HtmlControls.HtmlButton
-
-    '''<summary>
-    '''Controle txtResult.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents txtResult As Global.System.Web.UI.HtmlControls.HtmlInputText
 End Class
