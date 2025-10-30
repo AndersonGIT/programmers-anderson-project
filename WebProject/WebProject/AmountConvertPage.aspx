@@ -1,32 +1,33 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="AmountConvertPage.aspx.vb" Inherits="WebProject.AmountConvertPage" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-      <script>
+    <script>
         $(document).ready(function () {
             $("#btnAmountConvertAjax").click(function () {
                 var amountInputValue = $("#amountValue").val();
 
                 if (!amountInputValue) {
-                    alert('The input is not a valid number, try again.');
+                    showAlertMessage('The input is not a valid number, try again.', 'ALERT-WARNING');
                 } else {
                     $.ajax({
                         type: "POST",
                         url: '<%= ResolveUrl("AmountConvertPage.aspx/ConvertAmountToWords") %>',
-                    data: JSON.stringify({ amount: amountInputValue }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function (response) {
-                        if (response.d) {
-                            $('#txtResult').val(response.d);
+                        data: JSON.stringify({ amount: amountInputValue }),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (response) {
+                            if (response.d) {
+                                $('#txtResult').val(response.d);
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("Error: " + error);
                         }
-                    },
-                    error: function (xhr, status, error) {
-                        console.error("Error: " + error);
-                    }
-                });
-            }
+                    });
+                }
+            });
         });
-    });
-      </script>
+    </script>
 
     <div class="row">
         <div class="col-md-12">
@@ -41,7 +42,8 @@
         <div class="col-md-8">
             <div class="form-group">
                 <label for="lblAmount">Amount</label>
-                <input runat="server" type="number" min="0.1" step="any" class="form-control" id="amountValue" clientidmode="Static" aria-describedby="amountHelp" placeholder="Enter amount">
+
+                <input runat="server" type="number" min="1" step="any" class="form-control" id="amountValue" clientidmode="Static" aria-describedby="amountHelp" placeholder="Enter amount" width="300px">
                 <small id="amountHelp" class="form-text text-muted">The amount value to be writen in extension.</small>
                 <p>
                     <br />

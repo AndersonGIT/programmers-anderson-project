@@ -9,7 +9,10 @@ Public Class AmountConvertPage
     End Sub
 
     <WebMethod()>
-    Public Shared Function ConvertAmountToWords(amount As Decimal) As String
+    Public Shared Function ConvertAmountToWords(amount As Long) As String
+        If amount = 0 Then Return "zero"
+        If amount >= 1000000000000 Then Return "Limit of 1000000000000 reached"
+
         Dim dollars As Long = Math.Floor(amount)
         Dim cents As Integer = CInt((amount - dollars) * 100)
 
@@ -20,7 +23,6 @@ Public Class AmountConvertPage
     End Function
 
     Shared Function NumberToWordsEnglish(number As Long) As String
-        If number = 0 Then Return "zero"
         If number < 0 Then Return "minus " & NumberToWordsEnglish(Math.Abs(number))
 
         Dim words As New StringBuilder()
